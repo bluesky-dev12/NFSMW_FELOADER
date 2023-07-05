@@ -54,14 +54,15 @@ void ToggleReflections(bool enabled)
 namespace Game
 {
 	float* ShadowZ = (float*)0x007BE7E2;
-	//int* GameState = (int*)0x00A99BBC;
-	int* GameState = (int*)0x0925E90;
+	//int* GameState = (int*)0x00A99BBC; -->Carbon
+	int* GameState = (int*)0x0925E90; //MW
 
 	float* CarZ = (float*)0x009F9AE8;
 	float* DeltaTime = (float*)0x00A99A5C;
 	float* FrontSteerAngle = (float*)0x00A7B668;
 
-	auto GetTrackPositionMarker = (TrackPositionMarker * (__cdecl*)(const char* a1, int a2))0x0079DB4E;  //TEST
+	//auto GetTrackPositionMarker = (TrackPositionMarker * (__cdecl*)(const char* a1, int a2))0x0079DB20; -->Carbon
+	auto GetTrackPositionMarker = (TrackPositionMarker * (__cdecl*)(const char* a1, int a2))0x0079DB4E;  //MW
 	auto StringHash = (int(__cdecl*)(const char*))0x471050;
 	auto eViewPlatInterface_Render = (int(__thiscall*)(void*, void*, D3DXMATRIX*, D3DXMATRIX*, int, int, int))0x00729320;
 	auto eModel_Init = (void(__thiscall*)(void*, int))0x0055E7E0;
