@@ -205,6 +205,7 @@ D3DXMATRIX* ScrollMatrises;
 float ScrollSpeed, TargetScrollSpeed, ScrollSpeedMin, ScrollSpeedMax;
 bool InitCustomGarage()
 {
+
 	if (!GarageInit)
 	{
 		int* recource = Game::FindResourceFile(CustomPlatformPath.c_str());
@@ -474,13 +475,17 @@ void Init()
 			}
 		}
 	}
+	
+	//injector::MakeCALL(0x007A9A03, GetTrackPositionMarker, true); --> Carbon
+	//injector::MakeCALL(0x00733963, GetTrackPositionMarker, true);  //-->MW
+	//injector::MakeCALL(0x0083F23D, GetTrackPositionMarker, true); -- > Carbon
+	//injector::MakeCALL(0x007A91CD, GetTrackPositionMarker, true); //-->MW
+	//injector::MakeCALL(0x0083F25E, GetTrackPositionMarker, true);->Carbon
+	//injector::MakeCALL(0x007A91FC, GetTrackPositionMarker, true);//-->MW
 
-	injector::MakeCALL(0x007A9A03, GetTrackPositionMarker, true);
-	injector::MakeCALL(0x0083F23D, GetTrackPositionMarker, true);
-	injector::MakeCALL(0x0083F25E, GetTrackPositionMarker, true);
-
-	injector::MakeJMP(0x0086A18F, CarRotationCave1, true);
-	injector::MakeJMP(0x0086A187, CarRotationCave2, true);
+	
+	//injector::MakeJMP(0x0086A18F, CarRotationCave1, true);
+	/*injector::MakeJMP(0x0086A187, CarRotationCave2, true);
 
 	bool loadMapInFE = iniReader.ReadInteger("GENERAL", "LoadMapInFE", 0) == 1;
 	if (loadMapInFE)
@@ -525,7 +530,7 @@ void Init()
 		{
 			MessageBoxA(NULL, "Custom platform geometry not found!", VERSION, MB_ICONERROR);
 		}
-	}
+	}*/
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
